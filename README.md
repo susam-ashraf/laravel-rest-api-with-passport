@@ -6,9 +6,9 @@ REST API in Laravel with authentication using Passport.
 
 1) Login API
 
-2)Register API
+2) Register API
 
-3)Details API
+3) Details API
 
 # Project Dependencies : 
 
