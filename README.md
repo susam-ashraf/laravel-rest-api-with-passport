@@ -1,5 +1,5 @@
 
-# laravel-rest-api-with-passport.
+# laravel Rest Api With Passport.
 
 REST API in Laravel with authentication using Passport
 
@@ -18,20 +18,20 @@ REST API in Laravel with authentication using Passport
 -> MySql : 5.6.24
 
 ## Step 1 : Install Package
-
+```
 => composer require paragonie/random_compat=~2.0
 
 => composer require laravel/passport=~4.0
-
+```
 ## Step 2: Run Migration and Install
-
+```
 => php artisan migrate
 
 => php artisan passport:install
-
+```
 ## Step 3: Passport Configuration
  
- After running this command, add the Laravel\Passport\HasApiTokens trait to your App\User model. This trait will provide a few helper methods to your model which allow you to inspect the authenticated user's token and scopes:
+ After running this command, add the **Laravel\Passport\HasApiTokens** trait to your **App\User** model. This trait will provide a few helper methods to your model which allow you to inspect the authenticated user's token and scopes:
  
  ```php
  <?php
@@ -52,9 +52,9 @@ class User extends Authenticatable
 
 
 ### ----------------
-Next, you should call the Passport::routes method within the boot method of your AuthServiceProvider. This method will register the routes necessary to issue access tokens and revoke access tokens, clients, and personal access tokens:
+Next, you should call the **Passport::routes** method within the **boot** method of your **AuthServiceProvider**. This method will register the routes necessary to issue access tokens and revoke access tokens, clients, and personal access tokens:
 
-```ruby
+```php
 <?php
 
 namespace App\Providers;
@@ -91,9 +91,9 @@ class AuthServiceProvider extends ServiceProvider
 
 ##3 -----------------
 
-Finally, in your config/auth.php configuration file, you should set the driver option of the api authentication guard to passport. This will instruct your application to use Passport's TokenGuard when authenticating incoming API requests:
+Finally, in your **config/auth.php** configuration file, you should set the driver option of the api authentication guard to passport. This will instruct your application to use Passport's TokenGuard when authenticating incoming API requests:
 
-```ruby
+```php
 'guards' => [
     'web' => [
         'driver' => 'session',
@@ -111,7 +111,7 @@ Finally, in your config/auth.php configuration file, you should set the driver o
 
 ## Step 4: Create API Route
 
-In this step, we will create API routes. Laravel provides api.php file for write web services route. So, let’s add a new route on that file.
+In this step, we will create API routes. Laravel provides **api.php** file for write web services route. So, let’s add a new route on that file.
 
 ```ruby
 Route::post('login', 'API\UserController@login');
